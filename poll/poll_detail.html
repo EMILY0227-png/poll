@@ -1,0 +1,21 @@
+{% extands "base.html"%}
+
+{% block content%}s
+<a href="/poll/">返回ˊ主題列表</a>
+<h1>{{ poll.subject }}</h1>
+<p>{{ poll.description }}</p>
+<p>建立日期:{{ poll.date_created }}</p>
+
+<a href-"/poll/{{ poll.id }}/add/">新增選項</a>
+
+<ul>
+    {% for option in option_list %}
+    <li>
+        <a href="/option/{{ option.id }}/">{{ option.title }}
+        - {{ option.count }}票</li>
+        <a href="/option/{{ option.id }}/edit/">修改<a/>
+        <a href="/option/{{ option.id }}/edit/">刪除</a>
+    </li>
+        {% enfor %}
+</ul>
+{% endblock%}
